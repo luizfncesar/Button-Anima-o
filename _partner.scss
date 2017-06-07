@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500,600');
+
+$color: #fff;
+
+
+%partner--area {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: center;
+
+	padding: 0.6em;
+	text-align: center;
+	vertical-align: middle;
+}
+
+%partner--button-svg {
+	position: relative;
+	display: block;
+	color: $color;
+
+	font-size: 13px;
+    line-height: 35px;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+    padding: 0; 
+    cursor: pointer;
+    margin: 0 auto;
+
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    vertical-align: middle;
+    width: 100%;
+    pointer-events: auto;
+    font-family: 'PT Sans', sans-serif;
+
+    &:hover {
+        text-decoration: none;
+    }
+	
+	svg {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+    }
+}
+

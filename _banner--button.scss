@@ -1,0 +1,152 @@
+
+.button--hvr-1 {
+    .button__area {
+        @extend %partner--area;
+
+        a {
+            @extend %partner--button-svg;
+        }
+
+        @extend %button-animation-1;
+    }
+}
+
+.button--hvr-2 {
+    .button__area {
+        @extend %partner--area;
+
+        a {
+            @extend %partner--button-svg;
+        }
+
+        @extend %button-animation-2;
+    }
+}
+
+
+/*  Para trabalhar com as animações ou os tamanhos dos formatos de botão é necessário alterar as seguintes informações:
+    
+    $width--anim-x: Largura do botão ;
+    $height--anim-x: Altura do botão ;
+    $size--anim-x: Comprimento do botão, elemento visível;
+    $animation-x: formato final do botão;
+    
+    stroke-width: altera o tamanho da bordar;
+    stroke-dashoffset: movimenta o elemento;
+    stroke: altera a cor;
+
+    também pode ser utilizado o 
+    background no hover ou o fill para atribuir a cor de fundo;
+
+
+
+    EXEMPLO: primeora animação;
+    
+            160px total
+    ------------------------
+     5px      150px     5px
+     __                  __ 
+    |  __________________  | 5px  |
+    | |                  | |      |
+      |     VER TODOS    |   25px | 35px
+    | |__________________| |      |
+    |__                  __| 5px  |
+
+     5px      150px     5px
+
+    ------------------------
+    
+    deverar ser o,
+    stroke-dasharray:  5px , 150px, 10px , 25px, 10px, 150px, 10px, 25px, 5px;
+
+    Calculo para gerar esse resultado,
+    5, (100% - (2*5)), (5+5), (35 - (2*5)), (5+5), 100% - (2*5)), (5+5), (35 - (2*5)) , 5;
+
+*/
+
+
+
+// GLOBAL:
+$width--anim-1: 380px;
+$height--anim-1: 35px;
+$size--anim-1: 10px;
+$animation-1: $size--anim-1, $width--anim-1 - (2 * $size--anim-1), ( $size--anim-1 + $size--anim-1), $height--anim-1 -(2 * $size--anim-1), ( $size--anim-1 + $size--anim-1), $width--anim-1 - (2 * $size--anim-1), ( $size--anim-1 + $size--anim-1), $height--anim-1 -(2 * $size--anim-1),  $size--anim-1;
+
+
+// BUTTON: Animation - 1
+%button-animation-1 {
+    a {
+        max-width: $width--anim-1;
+        height: $height--anim-1;
+        line-height: $height--anim-1;
+
+        svg {
+            height: $height--anim-1;
+        }
+
+        rect {
+            fill: none;
+            stroke: rgba(255, 255, 255, 1);
+            stroke-width: 3;
+            stroke-dasharray: 100%, 0;
+            stroke-dashoffset: -100%;
+        }
+    }
+
+    a:hover {
+        letter-spacing: 0.15em;
+        background: rgba(25,225,244, 0.6);
+        transition: background 0.3s 0s, letter-spacing 0.3s;
+
+        rect {
+            fill: none;
+            stroke: rgba(255, 255, 255, 1);
+            stroke-width: 5;
+            stroke-dasharray: $animation-1;
+            stroke-dashoffset: 0;
+            transition: all .55s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    }
+}
+
+// GLOBAL:
+$width--anim-2: 260px;
+$height--anim-2: 45px;
+$size--anim-2: 20px;
+$animation-2 : $size--anim-2 , ($width--anim-2 + $height--anim-2 + ($width--anim-2 / 2) - ( $size--anim-2 / 2) ); 
+
+// BUTTON: Animation - 2
+%button-animation-2 {
+    a {
+        max-width: $width--anim-2;
+        height: $height--anim-2;
+        line-height: $height--anim-2;
+
+    svg {
+        height: $height--anim-2;
+    }
+    rect {
+        fill: none;
+        stroke: rgba(220,218,201, 0.8);
+        stroke-width: 2;
+        stroke-dasharray: 100%, 0;
+        stroke-dashoffset: -$width--anim-2;
+    }
+}
+
+    a:hover {
+        letter-spacing: 0.15em;
+        transition: letter-spacing 0.3s;
+
+        rect {
+            fill: rgba(255,255,255, 0.1);
+            stroke: rgba(220,218,201, 0.8);
+            stroke-width: 3;
+            //stroke-dasharray: 30, 275;
+            stroke-dasharray: $animation-2;
+            stroke-dashoffset: $size--anim-2;
+            transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+    }
+}
+

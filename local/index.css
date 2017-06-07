@@ -1,0 +1,150 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,500,600");
+.button--hvr-1 .button__area, .button--hvr-2 .button__area {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.6em;
+  text-align: center;
+  vertical-align: middle; }
+
+.button--hvr-1 .button__area a, .button--hvr-2 .button__area a {
+  position: relative;
+  display: block;
+  color: #fff;
+  font-size: 13px;
+  line-height: 35px;
+  letter-spacing: 0.1em;
+  transition: 0.3s;
+  padding: 0;
+  cursor: pointer;
+  margin: 0 auto;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 100%;
+  pointer-events: auto;
+  font-family: 'PT Sans', sans-serif; }
+  .button--hvr-1 .button__area a:hover, .button--hvr-2 .button__area a:hover {
+    text-decoration: none; }
+  .button--hvr-1 .button__area a svg, .button--hvr-2 .button__area a svg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0; }
+
+.landing--default {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #4d3fad; }
+  .landing--default .landing__area {
+    position: absolute;
+    display: block;
+    height: 5%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto; }
+
+/*  Para trabalhar com as animações ou os tamanhos dos formatos de botão é necessário alterar as seguintes informações:
+    
+    $width--anim-x: Largura do botão ;
+    $height--anim-x: Altura do botão ;
+    $size--anim-x: Comprimento do botão, elemento visível;
+    $animation-x: formato final do botão;
+    
+    stroke-width: altera o tamanho da bordar;
+    stroke-dashoffset: movimenta o elemento;
+    stroke: altera a cor;
+
+    também pode ser utilizado o 
+    background no hover ou o fill para atribuir a cor de fundo;
+
+
+
+    EXEMPLO: primeora animação;
+    
+            160px total
+    ------------------------
+     5px      150px     5px
+     __                  __ 
+    |  __________________  | 5px  |
+    | |                  | |      |
+      |     VER TODOS    |   25px | 35px
+    | |__________________| |      |
+    |__                  __| 5px  |
+
+     5px      150px     5px
+
+    ------------------------
+    
+    deverar ser o,
+    stroke-dasharray:  5px , 150px, 10px , 25px, 10px, 150px, 10px, 25px, 5px;
+
+    Calculo para gerar esse resultado,
+    5, (100% - (2*5)), (5+5), (35 - (2*5)), (5+5), 100% - (2*5)), (5+5), (35 - (2*5)) , 5;
+
+*/
+.button--hvr-1 .button__area a {
+  max-width: 380px;
+  height: 35px;
+  line-height: 35px; }
+  .button--hvr-1 .button__area a svg {
+    height: 35px; }
+  .button--hvr-1 .button__area a rect {
+    fill: none;
+    stroke: white;
+    stroke-width: 3;
+    stroke-dasharray: 100%, 0;
+    stroke-dashoffset: -100%; }
+
+.button--hvr-1 .button__area a:hover {
+  letter-spacing: 0.15em;
+  background: rgba(25, 225, 244, 0.6);
+  transition: background 0.3s 0s, letter-spacing 0.3s; }
+  .button--hvr-1 .button__area a:hover rect {
+    fill: none;
+    stroke: white;
+    stroke-width: 5;
+    stroke-dasharray: 10px, 360px, 20px, 15px, 20px, 360px, 20px, 15px, 10px;
+    stroke-dashoffset: 0;
+    transition: all 0.55s cubic-bezier(0.19, 1, 0.22, 1); }
+
+.button--hvr-2 .button__area a {
+  max-width: 260px;
+  height: 45px;
+  line-height: 45px; }
+  .button--hvr-2 .button__area a svg {
+    height: 45px; }
+  .button--hvr-2 .button__area a rect {
+    fill: none;
+    stroke: rgba(220, 218, 201, 0.8);
+    stroke-width: 2;
+    stroke-dasharray: 100%, 0;
+    stroke-dashoffset: -260px; }
+
+.button--hvr-2 .button__area a:hover {
+  letter-spacing: 0.15em;
+  transition: letter-spacing 0.3s; }
+  .button--hvr-2 .button__area a:hover rect {
+    fill: rgba(255, 255, 255, 0.1);
+    stroke: rgba(220, 218, 201, 0.8);
+    stroke-width: 3;
+    stroke-dasharray: 20px, 425px;
+    stroke-dashoffset: 20px;
+    transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1); }
+
+/*# sourceMappingURL=index.css.map */
